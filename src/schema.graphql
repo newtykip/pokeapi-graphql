@@ -4,15 +4,85 @@ type Query {
     berryFlavor(name: String!): BerryFlavor!
 }
 
-# Universal Types
-type NamedAPIResource {
+# Common Models
+type Language {
+    id: Int!
     name: String!
+    official: Boolean!
+    iso639: String!
+    iso3166: String!
+    names: [Name!]!
+}
+
+type APIResource {
     url: String!
+}
+
+type Description {
+    description: String!
+    language: NamedAPIResource!
+}
+
+type Effect {
+    effect: String!
+    language: NamedAPIResource!
+}
+
+type Encounter {
+    minLevel: Int!
+    maxLevel: Int!
+    conditionValues: NamedAPIResource!
+    chance: Int!
+    method: NamedAPIResource!
+}
+
+type FlavorText {
+    flavorText: String!
+    language: NamedAPIResource!
+    version: NamedAPIResource!
+}
+
+type GenerationGameIndex {
+    gameIndex: Int!
+    generation: NamedAPIResource!
+}
+
+type MachineVersionDetail {
+    machine: APIResource!
+    versionGroup: NamedAPIResource!
 }
 
 type Name {
     name: String!
     language: NamedAPIResource!
+}
+
+type NamedAPIResource {
+    name: String!
+    url: String!
+}
+
+type VerboseEffect {
+    effect: String!
+    shortEffect: String!
+    language: NamedAPIResource!
+}
+
+type VersionEncounterDetail {
+    version: NamedAPIResource!
+    maxChance: Int!
+    encounterDetails: [Encounter!]!
+}
+
+type VersionGameIndex {
+    gameIndex: Int!
+    version: NamedAPIResource!
+}
+
+type VersionGroupFlavorText {
+    text: String!
+    language: NamedAPIResource!
+    versionGroup: NamedAPIResource!
 }
 
 # Berries
