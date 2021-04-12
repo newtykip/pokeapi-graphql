@@ -1,0 +1,28 @@
+type Query {
+    berry(id: Int!): Berry!
+}
+
+type Berry {
+    id: Int!
+    name: String!
+    growthTime: Int!
+    maxHarvest: Int!
+    giftPower: Int!
+    size: Int!
+    smoothness: Int!
+    soilDryness: Int!
+    firmness: NamedAPIResource!
+    flavours: [BerryFlavorMap!]!
+    item: NamedAPIResource!
+    giftType: NamedAPIResource!
+}
+
+type BerryFlavorMap {
+    potency: Int!
+    flavor: NamedAPIResource!
+}
+
+type NamedAPIResource {
+    name: String!
+    url: String!
+}
