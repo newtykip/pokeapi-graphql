@@ -1,7 +1,11 @@
 type Query {
+    # Berries
     berry(name: String!): Berry!
     berryFirmness(name: String!): BerryFirmness!
     berryFlavor(name: String!): BerryFlavor!
+
+    # Contests
+    contestType(name: String!): ContestType!
 }
 
 # Common Models
@@ -122,4 +126,18 @@ type BerryFlavor {
     berries: [BerryFlavorMap!]!
     contestType: NamedAPIResource!
     names: [Name!]!
+}
+
+# Contests
+type ContestType {
+    id: Int!
+    name: String!
+    berryFlavor: NamedAPIResource!
+    names: [ContestName!]!
+}
+
+type ContestName {
+    name: String!
+    color: String!
+    language: NamedAPIResource!
 }
