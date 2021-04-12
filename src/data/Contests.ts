@@ -20,11 +20,22 @@ export default class Contests {
             id,
             name: apiName,
             berryFlavor: berry_flavor,
-            names
+            names,
         };
     }
 
     // todo: contest effects
+    async contestEffect(name: string): Promise<any> {
+        const { id, appeal, jam, effect_entries: effectEntries, flavor_text_entries: flavorTextEntries } = await this.get(`contest-type/${name}`);
+        
+        return {
+            id,
+            appeal,
+            jam,
+            effectEntries,
+            flavorTextEntries
+        };
+    }
 
     // todo: super contest effects
 }
