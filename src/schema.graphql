@@ -1,7 +1,23 @@
 type Query {
     berry(name: String!): Berry!
+    berryFirmness(name: String!): BerryFirmness!
+    berryFlavor(name: String!): BerryFlavor!
 }
 
+# Universal Types
+type NamedAPIResource {
+    name: String!
+    url: String!
+}
+
+type Name {
+    name: String!
+    language: NamedAPIResource!
+}
+
+# Berries
+
+# Berries Types
 type Berry {
     id: Int!
     name: String!
@@ -12,7 +28,7 @@ type Berry {
     smoothness: Int!
     soilDryness: Int!
     firmness: NamedAPIResource!
-    flavours: [BerryFlavorMap!]!
+    flavors: [BerryFlavorMap!]!
     item: NamedAPIResource!
     giftType: NamedAPIResource!
 }
@@ -22,7 +38,18 @@ type BerryFlavorMap {
     flavor: NamedAPIResource!
 }
 
-type NamedAPIResource {
+# Berry Firmness
+type BerryFirmness {
+    id: Int!
     name: String!
-    url: String!
+    berries: [NamedAPIResource!]!
+    names: [Name!]!
+}
+
+type BerryFlavor {
+    id: Int!
+    name: String!
+    berries: [BerryFlavorMap!]!
+    contestType: NamedAPIResource!
+    names: [Name!]!
 }
