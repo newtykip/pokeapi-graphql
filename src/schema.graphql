@@ -8,6 +8,11 @@ type Query {
     contestType(name: String!): ContestType!
     contestEffect(id: Int!): ContestEffect!
     superContestEffect(id: Int!): SuperContestEffect!
+
+    # Encounters
+    encounterMethod(name: String!): EncounterMethod!
+    encounterCondition(name: String!): EncounterCondition!
+    encounterConditionValue(name: String!): EncounterConditionValue!
 }
 
 # Common Models
@@ -157,4 +162,61 @@ type SuperContestEffect {
     appeal: Int!
     flavorTextEntries: [FlavorText!]!
     moves: [NamedAPIResource!]!
+}
+
+# Encounters
+
+type EncounterMethod {
+    id: Int!
+    name: String!
+    order: Int!
+    names: [Name!]!
+}
+
+type EncounterCondition {
+    id: Int!
+    name: String!
+    names: [Name!]!
+    values: [NamedAPIResource!]!
+}
+
+type EncounterConditionValue {
+    id: Int!
+    name: String!
+    condition: NamedAPIResource!
+    names: [Name!]!
+}
+
+type EvolutionChain {
+    id: Int!
+    babyTriggerItem: NamedAPIResource!
+    chain: ChainLink!
+}
+
+type ChainLink {
+    isBaby: Boolean!
+    species: NamedAPIResource!
+    evolutionDetails: [EvolutionDetail!]!
+    evolvesTo: [ChainLink!]!
+}
+
+type EvolutionDetail {
+    item: NamedAPIResource!
+    trigger: NamedAPIResource!
+    gender: Int!
+    heldItem: NamedAPIResource!
+    knownMove: NamedAPIResource!
+    knownMoveType: NamedAPIResource!
+    location: NamedAPIResource!
+    minLevel: Int!
+    minHappiness: Int!
+    minBeauty: Int!
+    minAffection: Int!
+    needsOverworldRain: Boolean!
+    partySpecies: NamedAPIResource!
+    partyType: NamedAPIResource!
+    relativePhysicalStats: Int!
+    timeOfDay: String!
+    tradeSpecies: NamedAPIResource!
+    turnUpsideDown: Boolean!
 }
