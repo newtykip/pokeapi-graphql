@@ -1,14 +1,14 @@
 import axios from 'axios';
 import Berries from './data/Berries';
-import Contests from './data/Contests'; // todo
-import Encounters from './data/Encounters'; // todo
-import Evolutions from './data/Evolutions'; // todo
-import Games from './data/Games'; // todo
-import Items from './data/Items'; // todo
-import Locations from './data/Locations'; // todo
-import Machines from './data/Machines'; // todo
-import Moves from './data/Moves'; // todo
-import Pokemon from './data/Pokemon'; // todo
+import Contests from './data/Contests';
+import Encounters from './data/Encounters';
+import Evolutions from './data/Evolutions';
+import Games from './data/Games';
+import Items from './data/Items';
+import Locations from './data/Locations';
+import Machines from './data/Machines';
+import Moves from './data/Moves';
+import Pokemon from './data/Pokemon';
 
 export default class PokeAPI {
     baseURL = 'https://pokeapi.co/api/v2';
