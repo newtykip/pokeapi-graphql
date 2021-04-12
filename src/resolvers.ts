@@ -3,6 +3,6 @@ const pokeAPI = new PokeAPI();
 
 export default {
     Query: {
-        berry: async (_, args) => await pokeAPI.getBerry(args.id),
-    }
-};
+        berry: async (_, args) => await pokeAPI.berries.getBerry(args.name),
+    },
+};  

@@ -1,5 +1,5 @@
 type Query {
-    berry(id: Int!): Berry!
+    berry(name: String!): Berry!
 }
 
 type Berry {
