@@ -6,6 +6,7 @@ type Query {
 
     # Contests
     contestType(name: String!): ContestType!
+    contestEffect(name: String!): ContestEffect!
 }
 
 # Common Models
@@ -140,4 +141,12 @@ type ContestName {
     name: String!
     color: String!
     language: NamedAPIResource!
+}
+
+type ContestEffect {
+    id: Int!
+    appeal: Int!
+    jam: Int!
+    effectEntries: [Effect!]!
+    flavorTextEntries: [FlavorText!]!
 }

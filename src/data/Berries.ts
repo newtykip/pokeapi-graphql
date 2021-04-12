@@ -48,13 +48,13 @@ export default class Berries {
      * @returns Info about the berry firmness
      */
     async getFirmness(name: string): Promise<any> {
-        const firmness = await this.get(`berry-firmness/${name}`);
+        const { id, name: apiName, berries, names } = await this.get(`berry-firmness/${name}`);
 
         return {
-            id: firmness.id,
-            name: firmness.name,
-            berries: firmness.berries,
-            names: firmness.names,
+            id,
+            name: apiName, 
+            berries, 
+            names
         };
     }
 
@@ -65,14 +65,14 @@ export default class Berries {
      * @returns Info about the berry flavor
      */
     async getFlavor(name: string): Promise<any> {
-        const flavor = await this.get(`berry-flavor/${name}`);
+        const { id, name: apiName, berries, contest_type, names} = await this.get(`berry-flavor/${name}`);
 
-        return {
-            id: flavor.id,
-            name: flavor.name,
-            berries: flavor.berries,
-            contestType: flavor.contest_type,
-            names: flavor.names
+        return { 
+            id, 
+            name: apiName, 
+            berries,
+            contestType: contest_type, 
+            names 
         };
     }
 }

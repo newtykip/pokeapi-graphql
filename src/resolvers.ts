@@ -10,5 +10,6 @@ export default {
 
         // Contests
         contestType: async (_, args) => await pokeAPI.contests.contestType(args.name),
+        contestEffect: async (_, args) => await pokeAPI.contests.contestEffect(args.name),
     },
 };  
