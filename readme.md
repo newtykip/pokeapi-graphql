@@ -9,9 +9,11 @@
 
 ## Progress
 
+**3/10** done!
+
 - [x] [Berries](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Berries.ts)
 - [x] [Contests](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Contests.ts)
-- [ ] [Encounters](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Encounters.ts)
+- [x] [Encounters](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Encounters.ts)
 - [ ] [Evolutions](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Evolutions.ts)
 - [ ] [Games](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Games.ts)
 - [ ] [Items](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Items.ts)
