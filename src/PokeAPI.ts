@@ -13,6 +13,8 @@ export default class PokeAPI {
         return (await axios.get(`${this.baseURL}/${endpoint}`)).data;
     }
 
+    // Berries
+
     /**
      * Gets information about a specified berry.
      * @param {number} id The ID of the berry
@@ -46,4 +48,117 @@ export default class PokeAPI {
             },
         };
     }
+
+    // todo: berry firmness
+
+    // todo: berry flavours
+
+    // Contests
+
+    // todo: contest types
+
+    // todo: contest effects
+
+    // todo: super contest effects
+
+    // Encounters
+
+    // todo: encounter methods
+
+    // todo: encounter conditions
+
+    // todo: encounter condition values
+
+    // Evolutions
+
+    // todo: evolution chains
+
+    // todo: evolution triggers
+
+    // Games
+
+    // todo: generations
+
+    // todo: pokedexes
+
+    // todo: version
+
+    // todo: version groups
+
+    // Items
+
+    // todo: item
+
+    // todo: item attributes
+
+    // todo: item categories
+
+    // todo: item fling effects
+    
+    // todo: item pockets
+
+    // Locations
+
+    // todo: locations
+
+    // todo: location areas
+
+    // todo: pal park areas
+
+    // todo: regions
+
+    // Machines
+
+    // todo: machines
+
+    // Moves
+
+    // todo: moves
+
+    // todo: moves ailments
+
+    // todo: move battle styles
+
+    // todo: move categories
+
+    // todo: move damage classes
+    
+    // todo: move learn methods
+
+    // todo: move targets
+
+    // Pokemon
+
+    // todo: abilities
+
+    // todo: characteristics
+
+    // todo: egg groups
+
+    // todo: genders
+
+    // todo: growth rates
+
+    // todo: natures
+
+    // todo: pokeathlon stats
+
+    // todo: pokemon
+
+    // todo: pokemon location areas
+
+    // todo: pokemon colours
+
+    // todo: pokemon forms
+
+    // todo: pokemon habitats
+
+    // todo: pokemon shapes
+
+    // todo: pokemon species
+
+    // todo: stats
+
+    // todo: types
+    
 }
