@@ -24,10 +24,15 @@ export default class Contests {
         };
     }
 
-    // todo: contest effects
-    async contestEffect(name: string): Promise<any> {
-        const { id, appeal, jam, effect_entries: effectEntries, flavor_text_entries: flavorTextEntries } = await this.get(`contest-type/${name}`);
-        
+    /**
+     * Gets information about a specified contest effect.
+     * @description Contest effects refer to the effects of moves when used in contests.
+     * @param {number} id The ID of the contest effect
+     * @returns Info about the contest effect
+     */
+    async contestEffect(id: number): Promise<any> {
+        const { appeal, jam, effect_entries: effectEntries, flavor_text_entries: flavorTextEntries } = await this.get(`contest-effect/${id}`);
+    
         return {
             id,
             appeal,
@@ -37,5 +42,20 @@ export default class Contests {
         };
     }
 
-    // todo: super contest effects
+    /**
+     * Gets information about a specified super contest effect.
+     * @description Super contest effects refer to the effects of moves when used in super contests.
+     * @param {number} id The ID of the super contest effect
+     * @returns Info about the super contest effect
+     */
+    async superContestEffect(id: number): Promise<any> {
+        const { appeal, flavor_text_entries: flavorTextEntries, moves } = await this.get(`super-contest-effect/${id}`);
+
+        return {
+            id,
+            appeal,
+            flavorTextEntries,
+            moves
+        };
+    }
 }

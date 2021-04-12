@@ -6,7 +6,8 @@ type Query {
 
     # Contests
     contestType(name: String!): ContestType!
-    contestEffect(name: String!): ContestEffect!
+    contestEffect(id: Int!): ContestEffect!
+    superContestEffect(id: Int!): SuperContestEffect!
 }
 
 # Common Models
@@ -149,4 +150,11 @@ type ContestEffect {
     jam: Int!
     effectEntries: [Effect!]!
     flavorTextEntries: [FlavorText!]!
+}
+
+type SuperContestEffect {
+    id: Int!
+    appeal: Int!
+    flavorTextEntries: [FlavorText!]!
+    moves: [NamedAPIResource!]!
 }
