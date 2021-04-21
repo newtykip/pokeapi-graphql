@@ -1,4 +1,3 @@
-import fs from 'fs';
 import axios from 'axios';
 import Berries from './data/Berries';
 import Contests from './data/Contests';

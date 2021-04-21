@@ -23,6 +23,28 @@
 - [ ] [Moves](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Moves.ts) (7 endpoints)
 - [ ] [Pokemon](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Pokemon.ts) (16 endpoints)
 
+## Example Query
+
+```
+query {
+    berries {
+        getBerry(query:"cheri") {
+            growthTime
+        }
+    }
+    contests {
+        getEffect(id:1) {
+            appeal
+        }
+    }
+    encounters {
+        getMethod(query:"1") {
+            name
+        }
+    }
+}
+```
+
 ## FAQ
 
 ### PokeAPI already is creating a GraphQL API - why did I make this?

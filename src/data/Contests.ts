@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 export default class Contests {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
