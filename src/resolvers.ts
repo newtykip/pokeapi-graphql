@@ -21,5 +21,18 @@ export default {
         // Evolutions
         evolutionChain: async (_, args) => await pokeAPI.evolutions.chain(args.id),
         evolutionTrigger: async (_, args) => await pokeAPI.evolutions.trigger(args.query),
+
+        // todo: Games
+
+        // todo: Items
+
+        // todo: Locations
+
+        // Machines
+        machine: async (_, args) => await pokeAPI.machines.machine(args.id),
+
+        // todo: Moves
+
+        // todo: Pokemon
     },
 };  

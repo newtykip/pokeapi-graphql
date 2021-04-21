@@ -19,6 +19,19 @@ type Query {
     # Evolution
     evolutionChain(id: Int!): EvolutionChain
     evolutionTrigger(query: String!): EvolutionTrigger
+
+    # todo: Games
+
+    # todo: Items
+
+    # todo: Locations
+
+    # Machines
+    machine(id: Int!): Machine
+
+    # todo: Moves
+
+    # todo: Pokemon
 }
 
 # Common Models
@@ -237,3 +250,22 @@ type EvolutionTrigger {
     names: [Name]
     pokemonSpecies: NamedAPIResource
 }
+    
+# todo: Games
+
+# todo: Items
+
+# todo: Locations
+
+# Machines
+
+type Machine {
+    id: Int
+    item: NamedAPIResource
+    move: NamedAPIResource
+    versionGroup: NamedAPIResource
+}
+
+# todo: Moves
+
+# todo: Pokemon
