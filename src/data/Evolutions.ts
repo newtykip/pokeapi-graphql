@@ -7,7 +7,24 @@ export default class Evolutions {
         this.baseURL = url;
     }
 
-    // todo: evolution chains
+    async chain(id: number) {
+        const { baby_trigger_item, chain } = await this.get(`evolution-chain/${id}`);
 
-    // todo: evolution triggers
+        return {
+            id,
+            baby_trigger_item,
+            chain,
+        };
+    }
+
+    async trigger(query: string) {
+        const { id, name, names, pokemon_species } = await this.get(`evolution-trigger/${query}`);
+
+        return {
+            id,
+            name,
+            names,
+            pokemon_species,
+        };
+    }
 }

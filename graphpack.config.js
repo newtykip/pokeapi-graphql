@@ -1,3 +1,5 @@
+const snakeCase = require('lodash.snakecase');
+
 module.exports = {
     webpack: ({
         config,
@@ -11,5 +13,8 @@ module.exports = {
             extensions: ['.ts', '.tsx', '.js'],
         };
         return config;
+    },
+    server: {
+        fieldResolver: (source, _args, _contextValue, info) => source === Object(source) ? source[snakeCase(info.fieldName)] : null,
     },
 };

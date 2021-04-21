@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 export default class Contests {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -6,20 +8,19 @@ export default class Contests {
         this.get = get;
         this.baseURL = url;
     }
-
     /**
      * Gets information about a specified contest type.
      * @description Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out Bulbapedia for greater detail.
-     * @param {string} name The name of the contest type
+     * @param {string} query What to search
      * @returns Info about the contest type
      */
-    async contestType(name: string): Promise<any> {
-        const { id, name: apiName, berry_flavor, names } = await this.get(`contest-type/${name}`);
+    async type(query: string): Promise<any> {
+        const { id, name, berry_flavor, names } = await this.get(`contest-type/${query}`);
 
         return {
             id,
-            name: apiName,
-            berryFlavor: berry_flavor,
+            name,
+            berry_flavor,
             names,
         };
     }
@@ -30,15 +31,15 @@ export default class Contests {
      * @param {number} id The ID of the contest effect
      * @returns Info about the contest effect
      */
-    async contestEffect(id: number): Promise<any> {
-        const { appeal, jam, effect_entries: effectEntries, flavor_text_entries: flavorTextEntries } = await this.get(`contest-effect/${id}`);
-    
+    async effect(id: number): Promise<any> {
+        const { appeal, jam, effect_entries, flavor_text_entries } = await this.get(`contest-effect/${id}`);
+
         return {
             id,
             appeal,
             jam,
-            effectEntries,
-            flavorTextEntries
+            effect_entries,
+            flavorTextEntries: flavor_text_entries,
         };
     }
 
@@ -48,13 +49,13 @@ export default class Contests {
      * @param {number} id The ID of the super contest effect
      * @returns Info about the super contest effect
      */
-    async superContestEffect(id: number): Promise<any> {
-        const { appeal, flavor_text_entries: flavorTextEntries, moves } = await this.get(`super-contest-effect/${id}`);
+    async superEffect(id: number): Promise<any> {
+        const { appeal, flavor_text_entries, moves } = await this.get(`super-contest-effect/${id}`);
 
         return {
             id,
             appeal,
-            flavorTextEntries,
+            flavorTextEntries: flavor_text_entries,
             moves
         };
     }
