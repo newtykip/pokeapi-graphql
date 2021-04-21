@@ -7,5 +7,7 @@ export default class Machines {
         this.baseURL = url;
     }
 
-    // todo: machines
+    async machine(id: number) {
+        return this.get(`machine/${id}`);
+    }
 }
