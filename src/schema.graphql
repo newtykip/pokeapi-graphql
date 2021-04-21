@@ -1,222 +1,239 @@
+# todo: refactor queries https://khalilstemmler.com/blogs/graphql/nested-graphql-resolvers/
+
 type Query {
     # Berries
-    berry(name: String!): Berry!
-    berryFirmness(name: String!): BerryFirmness!
-    berryFlavor(name: String!): BerryFlavor!
+    berry(query: String!): Berry
+    berryFirmness(query: String!): BerryFirmness
+    berryFlavor(query: String!): BerryFlavor
 
     # Contests
-    contestType(name: String!): ContestType!
-    contestEffect(id: Int!): ContestEffect!
-    superContestEffect(id: Int!): SuperContestEffect!
+    contestType(query: String!): ContestType
+    contestEffect(id: Int!): ContestEffect
+    superContestEffect(id: Int!): SuperContestEffect
 
     # Encounters
-    encounterMethod(name: String!): EncounterMethod!
-    encounterCondition(name: String!): EncounterCondition!
-    encounterConditionValue(name: String!): EncounterConditionValue!
+    encounterMethod(query: String!): EncounterMethod
+    encounterCondition(query: String!): EncounterCondition
+    encounterConditionValue(query: String!): EncounterConditionValue
+
+    # Evolution
+    evolutionChain(id: Int!): EvolutionChain
+    evolutionTrigger(query: String!): EvolutionTrigger
 }
 
 # Common Models
 type Language {
-    id: Int!
-    name: String!
-    official: Boolean!
-    iso639: String!
-    iso3166: String!
-    names: [Name!]!
+    id: Int
+    name: String
+    official: Boolean
+    iso639: String
+    iso3166: String
+    names: [Name]
 }
 
 type APIResource {
-    url: String!
+    url: String
 }
 
 type Description {
-    description: String!
-    language: NamedAPIResource!
+    description: String
+    language: NamedAPIResource
 }
 
 type Effect {
-    effect: String!
-    language: NamedAPIResource!
+    effect: String
+    language: NamedAPIResource
 }
 
 type Encounter {
-    minLevel: Int!
-    maxLevel: Int!
-    conditionValues: NamedAPIResource!
-    chance: Int!
-    method: NamedAPIResource!
+    minLevel: Int
+    maxLevel: Int
+    conditionValues: NamedAPIResource
+    chance: Int
+    method: NamedAPIResource
 }
 
 type FlavorText {
-    flavorText: String!
-    language: NamedAPIResource!
-    version: NamedAPIResource!
+    flavorText: String
+    language: NamedAPIResource
+    version: NamedAPIResource
 }
 
 type GenerationGameIndex {
-    gameIndex: Int!
-    generation: NamedAPIResource!
+    gameIndex: Int
+    generation: NamedAPIResource
 }
 
 type MachineVersionDetail {
-    machine: APIResource!
-    versionGroup: NamedAPIResource!
+    machine: APIResource
+    versionGroup: NamedAPIResource
 }
 
 type Name {
-    name: String!
-    language: NamedAPIResource!
+    name: String
+    language: NamedAPIResource
 }
 
 type NamedAPIResource {
-    name: String!
-    url: String!
+    name: String
+    url: String
 }
 
 type VerboseEffect {
-    effect: String!
-    shortEffect: String!
-    language: NamedAPIResource!
+    effect: String
+    shortEffect: String
+    language: NamedAPIResource
 }
 
 type VersionEncounterDetail {
-    version: NamedAPIResource!
-    maxChance: Int!
-    encounterDetails: [Encounter!]!
+    version: NamedAPIResource
+    maxChance: Int
+    encounterDetails: [Encounter]
 }
 
 type VersionGameIndex {
-    gameIndex: Int!
-    version: NamedAPIResource!
+    gameIndex: Int
+    version: NamedAPIResource
 }
 
 type VersionGroupFlavorText {
-    text: String!
-    language: NamedAPIResource!
-    versionGroup: NamedAPIResource!
+    text: String
+    language: NamedAPIResource
+    versionGroup: NamedAPIResource
 }
 
 # Berries
-
-# Berries Types
 type Berry {
-    id: Int!
-    name: String!
-    growthTime: Int!
-    maxHarvest: Int!
-    giftPower: Int!
-    size: Int!
-    smoothness: Int!
-    soilDryness: Int!
-    firmness: NamedAPIResource!
-    flavors: [BerryFlavorMap!]!
-    item: NamedAPIResource!
-    giftType: NamedAPIResource!
+    id: Int
+    name: String
+    growthTime: Int
+    maxHarvest: Int
+    giftPower: Int
+    size: Int
+    smoothness: Int
+    soilDryness: Int
+    firmness: NamedAPIResource
+    flavors: [BerryFlavorMap]
+    item: NamedAPIResource
+    giftType: NamedAPIResource
 }
 
 type BerryFlavorMap {
-    potency: Int!
-    flavor: NamedAPIResource!
+    potency: Int
+    flavor: NamedAPIResource
 }
 
-# Berry Firmness
 type BerryFirmness {
-    id: Int!
-    name: String!
-    berries: [NamedAPIResource!]!
-    names: [Name!]!
+    id: Int
+    name: String
+    berries: [NamedAPIResource]
+    names: [Name]
 }
 
 type BerryFlavor {
-    id: Int!
-    name: String!
-    berries: [BerryFlavorMap!]!
-    contestType: NamedAPIResource!
-    names: [Name!]!
+    id: Int
+    name: String
+    berries: [FlavorBerryMap]
+    contestType: NamedAPIResource
+    names: [Name]
+}
+
+type FlavorBerryMap {
+    potency: Int
+    berry: NamedAPIResource
 }
 
 # Contests
 type ContestType {
-    id: Int!
-    name: String!
-    berryFlavor: NamedAPIResource!
-    names: [ContestName!]!
+    id: Int
+    name: String
+    berryFlavor: NamedAPIResource
+    names: [ContestName]
 }
 
 type ContestName {
-    name: String!
-    color: String!
-    language: NamedAPIResource!
+    name: String
+    color: String
+    language: NamedAPIResource
 }
 
 type ContestEffect {
-    id: Int!
-    appeal: Int!
-    jam: Int!
-    effectEntries: [Effect!]!
-    flavorTextEntries: [FlavorText!]!
+    id: Int
+    appeal: Int
+    jam: Int
+    effectEntries: [Effect]
+    flavorTextEntries: [FlavorText]
 }
 
 type SuperContestEffect {
-    id: Int!
-    appeal: Int!
-    flavorTextEntries: [FlavorText!]!
-    moves: [NamedAPIResource!]!
+    id: Int
+    appeal: Int
+    flavorTextEntries: [FlavorText]
+    moves: [NamedAPIResource]
 }
 
 # Encounters
 
 type EncounterMethod {
-    id: Int!
-    name: String!
-    order: Int!
-    names: [Name!]!
+    id: Int
+    name: String
+    order: Int
+    names: [Name]
 }
 
 type EncounterCondition {
-    id: Int!
-    name: String!
-    names: [Name!]!
-    values: [NamedAPIResource!]!
+    id: Int
+    name: String
+    names: [Name]
+    values: [NamedAPIResource]
 }
 
 type EncounterConditionValue {
-    id: Int!
-    name: String!
-    condition: NamedAPIResource!
-    names: [Name!]!
+    id: Int
+    name: String
+    condition: NamedAPIResource
+    names: [Name]
 }
 
+# Evolution
+
 type EvolutionChain {
-    id: Int!
-    babyTriggerItem: NamedAPIResource!
-    chain: ChainLink!
+    id: Int
+    babyTriggerItem: NamedAPIResource
+    chain: ChainLink
 }
 
 type ChainLink {
-    isBaby: Boolean!
-    species: NamedAPIResource!
-    evolutionDetails: [EvolutionDetail!]!
-    evolvesTo: [ChainLink!]!
+    isBaby: Boolean
+    species: NamedAPIResource
+    evolutionDetails: [EvolutionDetail]
+    evolvesTo: [ChainLink]
 }
 
 type EvolutionDetail {
-    item: NamedAPIResource!
-    trigger: NamedAPIResource!
-    gender: Int!
-    heldItem: NamedAPIResource!
-    knownMove: NamedAPIResource!
-    knownMoveType: NamedAPIResource!
-    location: NamedAPIResource!
-    minLevel: Int!
-    minHappiness: Int!
-    minBeauty: Int!
-    minAffection: Int!
-    needsOverworldRain: Boolean!
-    partySpecies: NamedAPIResource!
-    partyType: NamedAPIResource!
-    relativePhysicalStats: Int!
-    timeOfDay: String!
-    tradeSpecies: NamedAPIResource!
-    turnUpsideDown: Boolean!
+    item: NamedAPIResource
+    trigger: NamedAPIResource
+    gender: Int
+    heldItem: NamedAPIResource
+    knownMove: NamedAPIResource
+    knownMoveType: NamedAPIResource
+    location: NamedAPIResource
+    minLevel: Int
+    minHappiness: Int
+    minBeauty: Int
+    minAffection: Int
+    needsOverworldRain: Boolean
+    partySpecies: NamedAPIResource
+    partyType: NamedAPIResource
+    relativePhysicalStats: Int
+    timeOfDay: String
+    tradeSpecies: NamedAPIResource
+    turnUpsideDown: Boolean
+}
+
+type EvolutionTrigger {
+    id: Int
+    name: String
+    names: [Name]
+    pokemonSpecies: NamedAPIResource
 }

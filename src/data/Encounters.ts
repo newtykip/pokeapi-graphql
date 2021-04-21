@@ -10,15 +10,15 @@ export default class Encounters {
     /**
      * Gets information about a specified encounter method.
      * @description Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
-     * @param {string} name The name of the encounter method
+     * @param {string} query What to search
      * @returns Info about the encounter method
      */
-    async encounterMethod(name: string): Promise<any> {
-        const { id, name: apiName, order, names } = await this.get(`encounter-method/${name}`);
+    async method(query: string): Promise<any> {
+        const { id, name, order, names } = await this.get(`encounter-method/${query}`);
 
         return {
             id, 
-            name: apiName,
+            name,
             order,
             names,
         }
@@ -27,15 +27,15 @@ export default class Encounters {
     /**
      * Gets information about a specified encounter condition.
      * @description Conditions which affect what pokemon might appear in the wild, e.g., day or night.
-     * @param {string} name The name of the encounter condition 
+     * @param {string} query What to search 
      * @returns Info about the encounter condition
      */
-    async encounterCondition(name: string): Promise<any> {
-        const { id, name: apiName, values, names } = await this.get(`encounter-condition/${name}`);
+    async condition(query: string): Promise<any> {
+        const { id, name, values, names } = await this.get(`encounter-condition/${query}`);
 
         return {
             id,
-            name: apiName,
+            name,
             values,
             names,
         };
@@ -44,15 +44,15 @@ export default class Encounters {
     /**
      * Gets information about a specified encounter condition value.
      * @description Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
-     * @param {string} name The name of the encounter condition value
+     * @param {string} query What to search
      * @returns Info about the encounter condition value
      */
-    async encounterConditionValue(name: string): Promise<any> {
-        const { id, name: apiName, condition, names } = await this.get(`encounter-condition-value/${name}`);
+    async conditionValue(query: string): Promise<any> {
+        const { id, name, condition, names } = await this.get(`encounter-condition-value/${query}`);
 
         return {
             id,
-            name: apiName,
+            name,
             condition,
             names,
         };

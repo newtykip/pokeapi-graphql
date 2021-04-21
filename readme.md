@@ -9,18 +9,19 @@
 
 ## Progress
 
-**3/10** done!
+**4/10 groups** done!
+**11/32 endpoints** done!
 
-- [x] [Berries](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Berries.ts)
-- [x] [Contests](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Contests.ts)
-- [x] [Encounters](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Encounters.ts)
-- [ ] [Evolutions](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Evolutions.ts)
-- [ ] [Games](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Games.ts)
-- [ ] [Items](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Items.ts)
-- [ ] [Locations](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Locations.ts)
-- [ ] [Machines](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Machines.ts)
-- [ ] [Moves](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Moves.ts)
-- [ ] [Pokemon](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Pokemon.ts)
+- [x] [Berries](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Berries.ts) (3 endpoints)
+- [x] [Contests](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Contests.ts) (3 endpoints)
+- [x] [Encounters](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Encounters.ts) (3 endpoints)
+- [x] [Evolutions](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Evolutions.ts) (2 endpoints)
+- [ ] [Games](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Games.ts) (4 endpoints)
+- [ ] [Items](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Items.ts) (5 endpoints)
+- [ ] [Locations](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Locations.ts) (4 endpoints)
+- [ ] [Machines](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Machines.ts) (1 endpoint)
+- [ ] [Moves](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Moves.ts) (7 endpoints)
+- [ ] [Pokemon](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Pokemon.ts) (16 endpoints)
 
 ## FAQ
 
