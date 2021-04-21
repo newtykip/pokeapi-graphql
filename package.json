@@ -13,9 +13,13 @@
   },
   "scripts": {
     "dev": "graphpack",
-    "build": "graphpack build"
+    "build": "graphpack build",
+    "docs": "graphdoc -s ./src/schema.graphql -o ./docs",
+    "docs:publish": "gh-pages -d docs"
   },
   "devDependencies": {
+    "@2fd/graphdoc": "^2.4.0",
+    "gh-pages": "^3.1.0",
     "graphpack": "^1.0.9"
   }
 }

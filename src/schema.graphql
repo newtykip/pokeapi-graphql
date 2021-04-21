@@ -1,40 +1,57 @@
 # todo: refactor queries https://khalilstemmler.com/blogs/graphql/nested-graphql-resolvers/
 
 type Query {
-    # Berries
-    berry(query: String!): Berry
-    berryFirmness(query: String!): BerryFirmness
-    berryFlavor(query: String!): BerryFlavor
-
-    # Contests
-    contestType(query: String!): ContestType
-    contestEffect(id: Int!): ContestEffect
-    superContestEffect(id: Int!): SuperContestEffect
-
-    # Encounters
-    encounterMethod(query: String!): EncounterMethod
-    encounterCondition(query: String!): EncounterCondition
-    encounterConditionValue(query: String!): EncounterConditionValue
-
-    # Evolution
-    evolutionChain(id: Int!): EvolutionChain
-    evolutionTrigger(query: String!): EvolutionTrigger
-
+    berries: Berries
+    contests: Contests
+    encounters: Encounters
+    evolution: Evolutions
     # todo: Games
-
     # todo: Items
-
     # todo: Locations
-
-    # Machines
-    machine(id: Int!): Machine
-
+    machines: Machines
     # todo: Moves
-
     # todo: Pokemon
 }
 
+type Berries {
+    getBerry(query: String!): Berry
+    getFirmness(query: String!): BerryFirmness
+    getFlavor(query: String!): BerryFlavor
+}
+
+type Contests {
+    getType(query: String!): ContestType
+    getEffect(id: Int!): ContestEffect
+    getSuperEffect(id: Int!): SuperContestEffect
+}
+
+type Encounters {
+    getMethod(query: String!): EncounterMethod
+    getCondition(query: String!): EncounterCondition
+    getConditionValue(query: String!): EncounterConditionValue
+}
+
+type Evolutions {
+    getChain(id: Int!): EvolutionChain
+    getTrigger(query: String!): EvolutionTrigger
+}
+
+# todo: Games
+
+# todo: Items
+
+# todo: Locations
+
+type Machines {
+    getMachine(id: Int!): Machine
+}
+
+# todo: Moves
+
+# todo: Pokemon
+
 # Common Models
+
 type Language {
     id: Int
     name: String
@@ -116,6 +133,7 @@ type VersionGroupFlavorText {
 }
 
 # Berries
+
 type Berry {
     id: Int
     name: String
@@ -157,6 +175,7 @@ type FlavorBerryMap {
 }
 
 # Contests
+
 type ContestType {
     id: Int
     name: String
