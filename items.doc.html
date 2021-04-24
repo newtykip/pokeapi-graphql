@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>VersionGroupFlavorText</title>
+    <title>Items</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -255,7 +255,7 @@
                 ItemPocket
             </a>
         </li>
-        <li  title="Items">
+        <li class="slds-is-active" title="Items">
             <a href="items.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Items
             </a>
@@ -370,7 +370,7 @@
                 VersionGroup
             </a>
         </li>
-        <li class="slds-is-active" title="VersionGroupFlavorText">
+        <li  title="VersionGroupFlavorText">
             <a href="versiongroupflavortext.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VersionGroupFlavorText
             </a>
@@ -441,7 +441,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">VersionGroupFlavorText</h1>
+        <h1 class="slds-text-heading--large">Items</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -453,7 +453,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">VersionGroupFlavorText</span> {</li><li></li><li><span class="tab"><span class="meta">text</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">language</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li></li><li><span class="tab"><span class="meta">versionGroup</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Items</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>query</strong>: </span></span></li><li><span class="tab"><span class="meta">getItem</span>(<span class="meta">query</span>: <a class="support type" href="querytype.doc.html">QueryType</a>!): <a class="support type" href="item.doc.html">Item</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>query</strong>: </span></span></li><li><span class="tab"><span class="meta">getAttribute</span>(<span class="meta">query</span>: <a class="support type" href="querytype.doc.html">QueryType</a>!): <a class="support type" href="itemattribute.doc.html">ItemAttribute</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>query</strong>: </span></span></li><li><span class="tab"><span class="meta">getCategory</span>(<span class="meta">query</span>: <a class="support type" href="querytype.doc.html">QueryType</a>!): <a class="support type" href="itemcategory.doc.html">ItemCategory</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>query</strong>: </span></span></li><li><span class="tab"><span class="meta">getFlingEffect</span>(<span class="meta">query</span>: <a class="support type" href="querytype.doc.html">QueryType</a>!): <a class="support type" href="itemflingeffect.doc.html">ItemFlingEffect</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>query</strong>: </span></span></li><li><span class="tab"><span class="meta">getPocket</span>(<span class="meta">query</span>: <a class="support type" href="querytype.doc.html">QueryType</a>!): <a class="support type" href="itempocket.doc.html">ItemPocket</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -464,7 +464,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="item.doc.html" title="Item - ">Item<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
     </div>
 </section>
 <footer>

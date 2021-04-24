@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>VersionGroupFlavorText</title>
+    <title>Item</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -220,7 +220,7 @@
                 GenerationGameIndex
             </a>
         </li>
-        <li  title="Item">
+        <li class="slds-is-active" title="Item">
             <a href="item.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Item
             </a>
@@ -370,7 +370,7 @@
                 VersionGroup
             </a>
         </li>
-        <li class="slds-is-active" title="VersionGroupFlavorText">
+        <li  title="VersionGroupFlavorText">
             <a href="versiongroupflavortext.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VersionGroupFlavorText
             </a>
@@ -441,7 +441,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">VersionGroupFlavorText</h1>
+        <h1 class="slds-text-heading--large">Item</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -453,7 +453,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">VersionGroupFlavorText</span> {</li><li></li><li><span class="tab"><span class="meta">text</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">language</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li></li><li><span class="tab"><span class="meta">versionGroup</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Item</span> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">cost</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">flingPower</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">flingEffect</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li></li><li><span class="tab"><span class="meta">attributes</span>: [<a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a>] </span></li><li></li><li><span class="tab"><span class="meta">category</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li></li><li><span class="tab"><span class="meta">effectEntries</span>: <a class="support type" href="verboseeffect.doc.html">VerboseEffect</a> </span></li><li></li><li><span class="tab"><span class="meta">flavorTextEntries</span>: [<a class="support type" href="versiongroupflavortext.doc.html">VersionGroupFlavorText</a>] </span></li><li></li><li><span class="tab"><span class="meta">gameIndices</span>: [<a class="support type" href="generationgameindex.doc.html">GenerationGameIndex</a>] </span></li><li></li><li><span class="tab"><span class="meta">names</span>: [<a class="support type" href="name.doc.html">Name</a>] </span></li><li></li><li><span class="tab"><span class="meta">sprites</span>: <a class="support type" href="itemsprites.doc.html">ItemSprites</a> </span></li><li></li><li><span class="tab"><span class="meta">heldByPokemon</span>: [<a class="support type" href="itemholderpokemon.doc.html">ItemHolderPokemon</a>] </span></li><li></li><li><span class="tab"><span class="meta">babyTriggerFor</span>: <a class="support type" href="apiresource.doc.html">APIResource</a> </span></li><li></li><li><span class="tab"><span class="meta">machines</span>: [<a class="support type" href="machineversiondetail.doc.html">MachineVersionDetail</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -464,7 +464,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="item.doc.html" title="Item - ">Item<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="items.doc.html" title="Items - ">Items<em></em></a><li></ul>
     </div>
 </section>
 <footer>
