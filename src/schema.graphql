@@ -4,7 +4,7 @@ type Query {
     encounters: Encounters
     evolutions: Evolutions
     games: Games
-    # todo: Items
+    items: Items
     locations: Locations
     machines: Machines
     # todo: Moves
@@ -43,7 +43,13 @@ type Games {
     getVersionGroup(query: QueryType!): VersionGroup
 }
 
-# todo: Items
+type Items {
+    getItem(query: QueryType!): Item
+    getAttribute(query: QueryType!): ItemAttribute
+    getCategory(query: QueryType!): ItemCategory
+    getFlingEffect(query: QueryType!): ItemFlingEffect
+    getPocket(query: QueryType!): ItemPocket
+}
 
 type Locations {
     getLocation(query: QueryType!): Location
@@ -328,7 +334,69 @@ type VersionGroup {
     versions: [NamedAPIResource]
 }
 
-# todo: Items
+# Items
+
+type Item {
+    id: Int
+    name: String
+    cost: Int
+    flingPower: Int
+    flingEffect: NamedAPIResource
+    attributes: [NamedAPIResource]
+    category: NamedAPIResource
+    effectEntries: VerboseEffect
+    flavorTextEntries: [VersionGroupFlavorText]
+    gameIndices: [GenerationGameIndex]
+    names: [Name]
+    sprites: ItemSprites
+    heldByPokemon: [ItemHolderPokemon]
+    babyTriggerFor: APIResource
+    machines: [MachineVersionDetail]
+}
+
+type ItemSprites {
+    default: String
+}
+
+type ItemHolderPokemon {
+    pokemon: NamedAPIResource
+    versionDetails: [ItemHolderPokemonVersionDetail]
+}
+
+type ItemHolderPokemonVersionDetail {
+    rarity: Int
+    version: NamedAPIResource
+}
+
+type ItemAttribute {
+    id: Int
+    name: String
+    items: [NamedAPIResource]
+    names: [Name]
+    descriptions: [Description]
+}
+
+type ItemCategory {
+    id: Int
+    name: String
+    items: [NamedAPIResource]
+    names: [Name]
+    pocket: NamedAPIResource
+}
+
+type ItemFlingEffect {
+    id: Int
+    name: String
+    effectEntries: [Effect]
+    items: [NamedAPIResource]
+}
+
+type ItemPocket {
+    id: Int
+    name: String
+    categories: [NamedAPIResource]
+    names: [Name]
+}
 
 # Locations
 

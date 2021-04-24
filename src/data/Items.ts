@@ -1,3 +1,5 @@
+type Query = string | number;
+
 export default class Items {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -7,13 +9,23 @@ export default class Items {
         this.baseURL = url;
     }
 
-    // todo: item
+    async item(query: Query): Promise<any> {
+        return await this.get(`item/${query}`);
+    }
 
-    // todo: item attributes
+    async attribute(query: Query): Promise<any> {
+        return await this.get(`item-attribute/${query}`);
+    }
 
-    // todo: item categories
+    async category(query: Query): Promise<any> {
+        return await this.get(`item-category/${query}`);
+    }
 
-    // todo: item fling effects
-    
-    // todo: item pockets
+    async flingEffect(query: Query): Promise<any> {
+        return await this.get(`item-fling-effect/${query}`);
+    }
+
+    async pocket(query: Query): Promise<any> {
+        return await this.get(`item-pocket/${query}`);
+    }
 }

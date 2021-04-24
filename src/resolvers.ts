@@ -9,7 +9,7 @@ export default {
         encounters: () => ({}),
         evolutions: () => ({}),
         games: () => ({}),
-        // todo: Items
+        items: () => ({}),
         locations: () => ({}),
         machines: () => ({}),
         // todo: Moves
@@ -46,7 +46,13 @@ export default {
         getVersionGroup: async (_, args) => await pokeAPI.games.versionGroup(args.query),
     },
 
-    // todo: Items
+    Items: {
+        getItem: async (_, args) => await pokeAPI.items.item(args.query),
+        getAttribute: async (_, args) => await pokeAPI.items.attribute(args.query),
+        getCategory: async (_, args) => await pokeAPI.items.category(args.query),
+        getFlingEffect: async (_, args) => await pokeAPI.items.flingEffect(args.query),
+        getPocket: async (_, args) => await pokeAPI.items.pocket(args.query),
+    },
 
     Locations: {
         getLocation: async (_, args) => await pokeAPI.locations.location(args.query),
