@@ -1,3 +1,5 @@
+type Query = string | number;
+
 export default class Games {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -7,7 +9,9 @@ export default class Games {
         this.baseURL = url;
     }
 
-    // todo: generations
+    async generation(query: Query): Promise<any> {
+        return await this.get(`generation/${query}`);
+    }
 
     // todo: pokedexes
 

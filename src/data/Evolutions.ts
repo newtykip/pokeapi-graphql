@@ -1,3 +1,6 @@
+type Query = string | number;
+
+
 export default class Evolutions {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -11,7 +14,7 @@ export default class Evolutions {
         return await this.get(`evolution-chain/${id}`);
     }
 
-    async trigger(query: string) {
+    async trigger(query: Query) {
         return await this.get(`evolution-trigger/${query}`);
     }
 }

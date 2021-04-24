@@ -1,3 +1,5 @@
+type Query = string | number;
+
 export default class Contests {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -7,7 +9,7 @@ export default class Contests {
         this.baseURL = url;
     }
 
-    async type(query: string): Promise<any> {
+    async type(query: Query): Promise<any> {
         return await this.get(`contest-type/${query}`);
     }
 
