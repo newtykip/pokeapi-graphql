@@ -1,3 +1,5 @@
+type Query = string | number;
+
 export default class Locations {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -7,11 +9,19 @@ export default class Locations {
         this.baseURL = url;
     }
 
-    // todo: locations
+    async location(query: Query): Promise<any> {
+        return await this.get(`location/${query}`);
+    }
 
-    // todo: location areas
+    async locationArea(query: Query): Promise<any> {
+        return await this.get(`location-area/${query}`);
+    }
 
-    // todo: pal park areas
+    async palParkArea(query: Query): Promise<any> {
+        return await this.get(`pal-park-area/${query}`);
+    }
 
-    // todo: regions
+    async region(query: Query): Promise<any> {
+        return await this.get(`region/${query}`);
+    }
 }

@@ -10,7 +10,7 @@ export default {
         evolutions: () => ({}),
         games: () => ({}),
         // todo: Items
-        // todo: Locations
+        locations: () => ({}),
         machines: () => ({}),
         // todo: Moves
         // todo: Pokemon
@@ -48,7 +48,12 @@ export default {
 
     // todo: Items
 
-    // todo: Locations
+    Locations: {
+        getLocation: async (_, args) => await pokeAPI.locations.location(args.query),
+        getLocationArea: async (_, args) => await pokeAPI.locations.locationArea(args.query),
+        getPalParkArea: async (_, args) => await pokeAPI.locations.palParkArea(args.query),
+        getRegion: async (_, args) => await pokeAPI.locations.region(args.query),
+    },
 
     Machines: {
         getMachine: async (_, args) => await pokeAPI.machines.machine(args.id),
