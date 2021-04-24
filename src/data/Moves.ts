@@ -1,3 +1,5 @@
+type Query = string | number;
+
 export default class Moves {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -7,17 +9,31 @@ export default class Moves {
         this.baseURL = url;
     }
 
-    // todo: moves
+    async move(query: Query): Promise<any> {
+        return await this.get(`move/${query}`);
+    }
 
-    // todo: moves ailments
+    async ailments(query: Query): Promise<any> {
+        return await this.get(`move-ailment/${query}`);
+    }
 
-    // todo: move battle styles
+    async battleStyle(query: Query): Promise<any> {
+        return await this.get(`move-battle-style/${query}`);
+    }
 
-    // todo: move categories
+    async category(query: Query): Promise<any> {
+        return await this.get(`move-category/${query}`);
+    }
 
-    // todo: move damage classes
+    async damageClass(query: Query): Promise<any> {
+        return await this.get(`move-damage-class/${query}`);
+    }
     
-    // todo: move learn methods
+    async learnMethod(query: Query): Promise<any> {
+        return await this.get(`move-learn-method/${query}`);
+    }
 
-    // todo: move targets
+    async target(query: Query): Promise<any> {
+        return await this.get(`move-target/${query}`);
+    }
 }

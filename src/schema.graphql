@@ -7,7 +7,7 @@ type Query {
     items: Items
     locations: Locations
     machines: Machines
-    # todo: Moves
+    moves: Moves
     # todo: Pokemon
 }
 
@@ -62,7 +62,15 @@ type Machines {
     getMachine(id: Int!): Machine
 }
 
-# todo: Moves
+type Moves {
+    getMove(query: QueryType!): Move
+    getAilment(query: QueryType!): MoveAilment
+    getBattleStyle(query: QueryType!): MoveBattleStyle
+    getCategory(query: QueryType!): MoveCategory
+    getDamageClass(query: QueryType!): MoveDamageClass
+    getLearnMethod(query: QueryType!): MoveLearnMethod
+    getTarget(query: QueryType!): MoveTarget
+}
 
 # todo: Pokemon
 
@@ -466,6 +474,127 @@ type Machine {
     versionGroup: NamedAPIResource
 }
 
-# todo: Moves
+# Moves
+
+type Move {
+    id: Int
+    name: String
+    accuracy: Int
+    effectChance: Int
+    pp: Int
+    priority: Int
+    power: Int
+    contestCombos: ContestComboSets
+    contestType: NamedAPIResource
+    contestEffect: APIResource
+    damageClass: NamedAPIResource
+    effectEntries: [VerboseEffect]
+    effectChanges: [AbilityEffectChange]
+    flavorTextEntries: [MoveFlavorText]
+    generation: NamedAPIResource
+    machines: [MachineVersionDetail]
+    meta: MoveMetaData
+    names: [Name]
+    pastValues: [PastMoveStatValues]
+    statChanges: [MoveStatChange]
+    superContestEffect: APIResource
+    target: NamedAPIResource
+    type: NamedAPIResource
+}
+
+type ContestComboSets {
+    normal: ContestComboDetail
+    super: ContestComboDetail
+}
+
+type ContestComboDetail {
+    useBefore: NamedAPIResource
+    useAfter: NamedAPIResource
+}
+
+type MoveFlavorText {
+    flavorText: String
+    language: NamedAPIResource
+    versionGroup: NamedAPIResource
+}
+
+type MoveMetaData {
+    ailment: NamedAPIResource
+    category: NamedAPIResource
+    minHits: Int
+    maxHits: Int
+    minTurns: Int
+    maxTurns: Int
+    drain: Int
+    healing: Int
+    critRate: Int
+    ailmentChance: Int
+    flinchChance: Int
+    statChance: Int
+}
+
+type MoveStatChange {
+    change: Int
+    stat: NamedAPIResource
+}
+
+type PastMoveStatValues {
+    accuracy: Int
+    effectChance: Int
+    power: Int
+    pp: Int
+    effectEntries: [VerboseEffect]
+    type: NamedAPIResource
+    versionGroup: NamedAPIResource
+}
+
+type MoveAilment {
+    id: Int
+    name: String
+    moves: [NamedAPIResource]
+    names: [Name]
+}
+
+type MoveBattleStyle {
+    id: Int
+    name: String
+    names: [Name]
+}
+
+type MoveCategory {
+    id: Int
+    name: String
+    moves: [NamedAPIResource]
+    descriptions: [Description]
+}
+
+type MoveDamageClass {
+    id: Int
+    name: String
+    descriptions: [Description]
+    moves: [NamedAPIResource]
+    names: [Name]
+}
+
+type MoveLearnMethod {
+    id: Int
+    name: String
+    descriptions: [Description]
+    names: [Name]
+    versionGroups: NamedAPIResource
+}
+
+type MoveTarget {
+    id: Int
+    name: String
+    descriptions: [Description]
+    moves: [NamedAPIResource]
+    names: [Name]
+}
 
 # todo: Pokemon
+
+type AbilityEffectChange {
+    effectEntries: [Effect]
+    versionGroup: NamedAPIResource
+}

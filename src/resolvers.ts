@@ -12,7 +12,7 @@ export default {
         items: () => ({}),
         locations: () => ({}),
         machines: () => ({}),
-        // todo: Moves
+        moves: () => ({}),
         // todo: Pokemon
     },
     
@@ -65,7 +65,15 @@ export default {
         getMachine: async (_, args) => await pokeAPI.machines.machine(args.id),
     },
 
-    // todo: Moves
+    Moves: {
+        getMove: async (_, args) => await pokeAPI.moves.move(args.query),
+        getAilment: async (_, args) => await pokeAPI.moves.ailments(args.query),
+        getBattleStyle: async (_, args) => await pokeAPI.moves.battleStyle(args.query),
+        getCategory: async (_, args) => await pokeAPI.moves.category(args.query),
+        getDamageClass: async (_, args) => await pokeAPI.moves.damageClass(args.query),
+        getLearnMethod: async (_, args) => await pokeAPI.moves.learnMethod(args.query),
+        getTarget: async (_, args) => await pokeAPI.moves.target(args.query),   
+    },
 
     // todo: Pokemon
 
