@@ -1,5 +1,6 @@
 import PokeAPI from './PokeAPI';
 const pokeAPI = new PokeAPI();
+import { GraphQLScalarType, Kind } from 'graphql';
 
 export default {
     Query: {
@@ -7,7 +8,7 @@ export default {
         contests: () => ({}),
         encounters: () => ({}),
         evolutions: () => ({}),
-        // todo: Games
+        games: () => ({}),
         // todo: Items
         // todo: Locations
         machines: () => ({}),
@@ -38,7 +39,9 @@ export default {
         getTrigger: async (_, args) => await pokeAPI.evolutions.trigger(args.query),
     },
 
-    // todo: Games
+    Games: {
+        getGeneration: async (_, args) => await pokeAPI.games.generation(args.query),
+    },
 
     // todo: Items
 
@@ -51,4 +54,43 @@ export default {
     // todo: Moves
 
     // todo: Pokemon
+
+    // Custom Scalar Types
+    QueryType: new GraphQLScalarType({
+        name: 'QueryType',
+        description: 'A String or an Int union type',
+
+        serialize(value) {
+            if (typeof value !== "string" && typeof value !== "number") {
+                throw new Error("Value must be either a String or an Int");
+            }
+
+            if (typeof value === "number" && !Number.isInteger(value)) {
+                throw new Error("Number value must be an Int");
+            }
+
+            return value;
+        },
+        
+        parseValue(value) {
+            if (typeof value !== "string" && typeof value !== "number") {
+                throw new Error("Value must be either a String or an Int");
+            }
+            
+            if (typeof value === "number" && !Number.isInteger(value)) {
+                throw new Error("Number value must be an Int");
+            }
+
+            return value;
+        },
+
+        parseLiteral(ast) {
+            switch (ast.kind) {
+                case Kind.INT: return parseInt(ast.value, 10);
+                case Kind.STRING: return ast.value;
+                default:
+                    throw new Error("Value must be either a String or an Int");
+                }
+        }
+    }),
 };  

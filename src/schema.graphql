@@ -1,11 +1,9 @@
-# todo: refactor queries https://khalilstemmler.com/blogs/graphql/nested-graphql-resolvers/
-
 type Query {
     berries: Berries
     contests: Contests
     encounters: Encounters
-    evolution: Evolutions
-    # todo: Games
+    evolutions: Evolutions
+    games: Games
     # todo: Items
     # todo: Locations
     machines: Machines
@@ -13,30 +11,34 @@ type Query {
     # todo: Pokemon
 }
 
+scalar QueryType
+
 type Berries {
-    getBerry(query: String!): Berry
-    getFirmness(query: String!): BerryFirmness
-    getFlavor(query: String!): BerryFlavor
+    getBerry(query: QueryType!): Berry
+    getFirmness(query: QueryType!): BerryFirmness
+    getFlavor(query: QueryType!): BerryFlavor
 }
 
 type Contests {
-    getType(query: String!): ContestType
+    getType(query: QueryType!): ContestType
     getEffect(id: Int!): ContestEffect
     getSuperEffect(id: Int!): SuperContestEffect
 }
 
 type Encounters {
-    getMethod(query: String!): EncounterMethod
-    getCondition(query: String!): EncounterCondition
-    getConditionValue(query: String!): EncounterConditionValue
+    getMethod(query: QueryType!): EncounterMethod
+    getCondition(query: QueryType!): EncounterCondition
+    getConditionValue(query: QueryType!): EncounterConditionValue
 }
 
 type Evolutions {
     getChain(id: Int!): EvolutionChain
-    getTrigger(query: String!): EvolutionTrigger
+    getTrigger(query: QueryType!): EvolutionTrigger
 }
 
-# todo: Games
+type Games {
+    getGeneration(query: QueryType!): Generation 
+}
 
 # todo: Items
 
@@ -270,7 +272,19 @@ type EvolutionTrigger {
     pokemonSpecies: NamedAPIResource
 }
     
-# todo: Games
+# Games
+
+type Generation {
+    id: Int
+    name: String
+    abilities: [NamedAPIResource]
+    names: [Name]
+    mainRegion: NamedAPIResource
+    moves: [NamedAPIResource]
+    pokemonSpecies: [NamedAPIResource]
+    types: [NamedAPIResource]
+    versionGroups: [NamedAPIResource]
+}
 
 # todo: Items
 
