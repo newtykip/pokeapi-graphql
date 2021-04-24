@@ -5,7 +5,7 @@ type Query {
     evolutions: Evolutions
     games: Games
     # todo: Items
-    # todo: Locations
+    locations: Locations
     machines: Machines
     # todo: Moves
     # todo: Pokemon
@@ -45,7 +45,12 @@ type Games {
 
 # todo: Items
 
-# todo: Locations
+type Locations {
+    getLocation(query: QueryType!): Location
+    getLocationArea(query: QueryType!): LocationArea
+    getPalParkArea(query: QueryType!): PalParkArea
+    getRegion(query: QueryType!): Region
+}
 
 type Machines {
     getMachine(id: Int!): Machine
@@ -325,7 +330,64 @@ type VersionGroup {
 
 # todo: Items
 
-# todo: Locations
+# Locations
+
+type Location {
+    id: Int
+    name: String
+    region: NamedAPIResource
+    names: [Name]
+    gameIndices: [GenerationGameIndex]
+    areas: NamedAPIResource
+}
+
+type LocationArea {
+    id: Int
+    name: String
+    gameIndex: Int
+    encounterMethodRates: [EncounterMethodRate]
+    location: NamedAPIResource
+    names: [Name]
+    pokemonEncounters: [PokemonEncounter]
+}
+
+type EncounterMethodRate {
+    encounterMethod: NamedAPIResource
+    versionDetails: EncounterVersionDetails
+}
+
+type EncounterVersionDetails {
+    rate: Int
+    version: NamedAPIResource
+}
+
+type PokemonEncounter {
+    pokemon: NamedAPIResource
+    versionDetails: VersionEncounterDetail
+}
+
+type PalParkArea {
+    id: Int
+    name: String
+    names: [Name]
+    pokemonEncounters: [PalParkEncounterSpecies]
+}
+
+type PalParkEncounterSpecies {
+    baseScore: Int
+    rate: Int
+    pokemonSpecies: NamedAPIResource
+}
+
+type Region {
+    id: Int
+    locations: NamedAPIResource
+    name: String
+    names: [Name]
+    mainGeneration: NamedAPIResource
+    pokedexes: [NamedAPIResource]
+    versionGroups: [NamedAPIResource]
+}
 
 # Machines
 
