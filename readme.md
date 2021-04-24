@@ -10,7 +10,7 @@
 ## Progress
 
 **8/10 groups** done!
-**25/48 endpoints** done!
+**32/48 endpoints** done!
 
 - [x] [Berries](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Berries.ts) (3 endpoints)
 - [x] [Contests](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Contests.ts) (3 endpoints)
@@ -20,7 +20,7 @@
 - [x] [Items](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Items.ts) (5 endpoints)
 - [x] [Locations](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Locations.ts) (4 endpoints)
 - [x] [Machines](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Machines.ts) (1 endpoint)
-- [ ] [Moves](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Moves.ts) (7 endpoints)
+- [x] [Moves](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Moves.ts) (7 endpoints)
 - [ ] [Pokemon](https://github.com/newtykins/pokeapi-graphql/blob/main/src/data/Pokemon.ts) (16 endpoints)
 
 ## Example Query
