@@ -13,9 +13,15 @@ export default class Games {
         return await this.get(`generation/${query}`);
     }
 
-    // todo: pokedexes
+    async pokedex(query: Query): Promise<any> {
+        return await this.get(`pokedex/${query}`);
+    }
 
-    // todo: version
+    async version(query: Query): Promise<any> {
+        return await this.get(`version/${query}`);
+    }
 
-    // todo: version groups
+    async versionGroup(query: Query): Promise<any> {
+        return await this.get(`version-group/${query}`);
+    }
 }

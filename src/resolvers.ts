@@ -41,6 +41,9 @@ export default {
 
     Games: {
         getGeneration: async (_, args) => await pokeAPI.games.generation(args.query),
+        getPokedex: async (_, args) => await pokeAPI.games.pokedex(args.query),
+        getVersion: async (_, args) => await pokeAPI.games.version(args.query),
+        getVersionGroup: async (_, args) => await pokeAPI.games.versionGroup(args.query),
     },
 
     // todo: Items

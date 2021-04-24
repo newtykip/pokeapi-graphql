@@ -38,6 +38,9 @@ type Evolutions {
 
 type Games {
     getGeneration(query: QueryType!): Generation 
+    getPokedex(query: QueryType!): Pokedex
+    getVersion(query: QueryType!): Version
+    getVersionGroup(query: QueryType!): VersionGroup
 }
 
 # todo: Items
@@ -284,6 +287,40 @@ type Generation {
     pokemonSpecies: [NamedAPIResource]
     types: [NamedAPIResource]
     versionGroups: [NamedAPIResource]
+}
+
+type Pokedex {
+    id: Int
+    name: String
+    isMainSerties: Boolean
+    descriptions: [Description]
+    names: [Name]
+    pokemonEntries: [PokemonEntry]
+    region: NamedAPIResource
+    versionGroups: [NamedAPIResource]
+}
+
+type PokemonEntry {
+    entryNumber: Int
+    pokemonSpecies: NamedAPIResource
+}
+
+type Version {
+    id: Int
+    name: String
+    names: [Name]
+    versionGroup: NamedAPIResource
+}
+
+type VersionGroup {
+    id: Int
+    name: String
+    order: Int
+    generation: NamedAPIResource
+    moveLearnMethods: [NamedAPIResource]
+    pokedexes: [NamedAPIResource]
+    regions: [NamedAPIResource]
+    versions: [NamedAPIResource]
 }
 
 # todo: Items
