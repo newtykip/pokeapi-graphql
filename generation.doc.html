@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Evolutions</title>
+    <title>Generation</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -185,7 +185,7 @@
                 EvolutionDetail
             </a>
         </li>
-        <li class="slds-is-active" title="Evolutions">
+        <li  title="Evolutions">
             <a href="evolutions.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Evolutions
             </a>
@@ -210,7 +210,7 @@
                 Games
             </a>
         </li>
-        <li  title="Generation">
+        <li class="slds-is-active" title="Generation">
             <a href="generation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Generation
             </a>
@@ -396,7 +396,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">Evolutions</h1>
+        <h1 class="slds-text-heading--large">Generation</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -408,7 +408,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Evolutions</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">getChain</span>(<span class="meta">id</span>: <a class="support type" href="int.doc.html">Int</a>!): <a class="support type" href="evolutionchain.doc.html">EvolutionChain</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>query</strong>: </span></span></li><li><span class="tab"><span class="meta">getTrigger</span>(<span class="meta">query</span>: <a class="support type" href="querytype.doc.html">QueryType</a>!): <a class="support type" href="evolutiontrigger.doc.html">EvolutionTrigger</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Generation</span> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">abilities</span>: [<a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a>] </span></li><li></li><li><span class="tab"><span class="meta">names</span>: [<a class="support type" href="name.doc.html">Name</a>] </span></li><li></li><li><span class="tab"><span class="meta">mainRegion</span>: <a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a> </span></li><li></li><li><span class="tab"><span class="meta">moves</span>: [<a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a>] </span></li><li></li><li><span class="tab"><span class="meta">pokemonSpecies</span>: [<a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a>] </span></li><li></li><li><span class="tab"><span class="meta">types</span>: [<a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a>] </span></li><li></li><li><span class="tab"><span class="meta">versionGroups</span>: [<a class="support type" href="namedapiresource.doc.html">NamedAPIResource</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -419,7 +419,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="games.doc.html" title="Games - ">Games<em></em></a><li></ul>
     </div>
 </section>
 <footer>
