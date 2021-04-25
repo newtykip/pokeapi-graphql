@@ -804,7 +804,7 @@ type PokemonForm {
   id: Int
   name: String
   order: Int
-  formOrder: int
+  formOrder: Int
   isDefault: Boolean
   isBattleOnly: Boolean
   isMega: Boolean
