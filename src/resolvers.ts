@@ -13,9 +13,9 @@ export default {
         locations: () => ({}),
         machines: () => ({}),
         moves: () => ({}),
-        // todo: Pokemon
+        pokemon: () => ({}),
     },
-    
+
     Berries: {
         getBerry: async (_, args) => await pokeAPI.berries.berry(args.query),
         getFirmness: async (_, args) => await pokeAPI.berries.firmness(args.query),
@@ -72,10 +72,27 @@ export default {
         getCategory: async (_, args) => await pokeAPI.moves.category(args.query),
         getDamageClass: async (_, args) => await pokeAPI.moves.damageClass(args.query),
         getLearnMethod: async (_, args) => await pokeAPI.moves.learnMethod(args.query),
-        getTarget: async (_, args) => await pokeAPI.moves.target(args.query),   
+        getTarget: async (_, args) => await pokeAPI.moves.target(args.query),
     },
 
-    // todo: Pokemon
+    Pokemon: {
+        getAbility: async (_, args) => await pokeAPI.pokemon.ability(args.query),
+        getCharacteristic: async (_, args) => await pokeAPI.pokemon.characteristic(args.id),
+        getEggGroup: async (_, args) => await pokeAPI.pokemon.eggGroup(args.query),
+        getGender: async (_, args) => await pokeAPI.pokemon.gender(args.query),
+        getGrowthRate: async (_, args) => await pokeAPI.pokemon.growthRate(args.query),
+        getNature: async (_, args) => await pokeAPI.pokemon.nature(args.query),
+        getPokeathlonStat: async (_, args) => await pokeAPI.pokemon.pokeathlonStat(args.query),
+        getPokemon: async (_, args) => await pokeAPI.pokemon.pokemon(args.query),
+        getPokemonLocationAreas: async (_, args) => await pokeAPI.pokemon.locationAreas(args.query),
+        getPokemonColor: async (_, args) => await pokeAPI.pokemon.color(args.query),
+        getPokemonForm: async (_, args) => await pokeAPI.pokemon.form(args.query),
+        getPokemonHabitat: async (_, args) => await pokeAPI.pokemon.habitat(args.query),
+        getPokemonShape: async (_, args) => await pokeAPI.pokemon.shape(args.query),
+        getPokemonSpecies: async (_, args) => await pokeAPI.pokemon.species(args.query),
+        getStat: async (_, args) => await pokeAPI.pokemon.stat(args.query),
+        getType: async (_, args) => await pokeAPI.pokemon.type(args.query),  
+    },
 
     // Custom Scalar Types
     QueryType: new GraphQLScalarType({
@@ -93,12 +110,12 @@ export default {
 
             return value;
         },
-        
+
         parseValue(value) {
             if (typeof value !== "string" && typeof value !== "number") {
                 throw new Error("Value must be either a String or an Int");
             }
-            
+
             if (typeof value === "number" && !Number.isInteger(value)) {
                 throw new Error("Number value must be an Int");
             }
@@ -115,4 +132,4 @@ export default {
                 }
         }
     }),
-};  
+};

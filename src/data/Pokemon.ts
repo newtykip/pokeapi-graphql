@@ -1,3 +1,5 @@
+type Query = string | number;
+
 export default class Pokemon {
     private get: (endpoint: string) => Promise<any>;
     private baseURL: string;
@@ -7,35 +9,67 @@ export default class Pokemon {
         this.baseURL = url;
     }
 
-    // todo: abilities
+    async ability(query: Query): Promise<any> {
+      return await this.get(`ability/${query}`);
+    }
 
-    // todo: characteristics
+    async characteristic(id: number): Promise<any> {
+      return await this.get(`characteristic/${id}`);
+    }
 
-    // todo: egg groups
+    async eggGroup(query: Query): Promise<any> {
+      return await this.get(`egg-group/${query}`);
+    }
 
-    // todo: genders
+    async gender(query: Query): Promise<any> {
+      return await this.get(`gender/${query}`);
+    }
 
-    // todo: growth rates
+    async growthRate(query: Query): Promise<any> {
+      return await this.get(`growth-rate/${query}`);
+    }
 
-    // todo: natures
+    async nature(query: Query): Promise<any> {
+      return await this.get(`nature/${query}`);
+    }
 
-    // todo: pokeathlon stats
+    async pokeathlonStat(query: Query): Promise<any> {
+      return await this.get(`pokeathlon-stat/${query}`);
+    }
 
-    // todo: pokemon
+    async pokemon(query: Query): Promise<any> {
+      return await this.get(`pokemon/${query}`);
+    }
 
-    // todo: pokemon location areas
+    async locationAreas(query: Query): Promise<any> {
+      return await this.get(`pokemon/${query}/encounters`);
+    }
 
-    // todo: pokemon colours
+    async color(query: Query): Promise<any> {
+      return await this.get(`pokemon-color/${query}`);
+    }
 
-    // todo: pokemon forms
+    async form(query: Query): Promise<any> {
+      return await this.get(`pokemon-form/${query}`);
+    }
 
-    // todo: pokemon habitats
+    async habitat(query: Query): Promise<any> {
+      return await this.get(`pokemon-habitat/${query}`);
+    }
 
-    // todo: pokemon shapes
+    async shape(query: Query): Promise<any> {
+      return await this.get(`pokemon-shape/${query}`);
+    }
 
-    // todo: pokemon species
+    async species(query: Query): Promise<any> {
+      return await this.get(`pokemon-species/${query}`);
+    }
 
-    // todo: stats
+    async stat(query: Query): Promise<any> {
+      return await this.get(`stat/${query}`);
+    }
 
-    // todo: types
+    async type(query: Query): Promise<any> {
+      return await this.get(`type/${query}`);
+    }
 }
