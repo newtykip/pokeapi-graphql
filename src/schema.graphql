@@ -8,7 +8,7 @@ type Query {
     locations: Locations
     machines: Machines
     moves: Moves
-    # todo: Pokemon
+    pokemon: Pokemon
 }
 
 scalar QueryType
@@ -37,7 +37,7 @@ type Evolutions {
 }
 
 type Games {
-    getGeneration(query: QueryType!): Generation 
+    getGeneration(query: QueryType!): Generation
     getPokedex(query: QueryType!): Pokedex
     getVersion(query: QueryType!): Version
     getVersionGroup(query: QueryType!): VersionGroup
@@ -72,7 +72,24 @@ type Moves {
     getTarget(query: QueryType!): MoveTarget
 }
 
-# todo: Pokemon
+type Pokemon {
+  getAbility(query: QueryType!): Ability
+  getCharacteristic(id: Int!): Characteristic
+  getEggGroup(query: QueryType!): EggGroup
+  getGender(query: QueryType!): Gender
+  getGrowthRate(query: QueryType!): GrowthRate
+  getNature(query: QueryType!): Nature
+  getPokeathlonStat(query: QueryType!): PokeathlonStat
+  getPokemon(query: QueryType!): Pokemon
+  getPokemonLocationAreas(query: QueryType!): LocationAreaEncounter
+  getPokemonColor(query: QueryType!): PokemonColor
+  getPokemonForm(query: QueryType!): PokemonForms
+  getPokemonHabitat(query: QueryType!): PokemonHabitat
+  getPokemonShape(query: QueryType!): PokemonShape
+  getPokemonSpecies(query: QueryType!): PokemonSpecies
+  getStat(query: QueryType!): Stat
+  getType(query: QueryType!): Type
+}
 
 # Common Models
 
@@ -293,7 +310,7 @@ type EvolutionTrigger {
     names: [Name]
     pokemonSpecies: NamedAPIResource
 }
-    
+
 # Games
 
 type Generation {
@@ -311,7 +328,7 @@ type Generation {
 type Pokedex {
     id: Int
     name: String
-    isMainSerties: Boolean
+    isMainSeries: Boolean
     descriptions: [Description]
     names: [Name]
     pokemonEntries: [PokemonEntry]
@@ -592,9 +609,340 @@ type MoveTarget {
     names: [Name]
 }
 
-# todo: Pokemon
+# Pokemon
+
+type Ability {
+  id: Int
+  name: String
+  isMainSeries: Boolean
+  generation: NamedAPIResource
+  names: [Name]
+  effectEntries: [VerboseEffect]
+  effectChanges: [AbilityEffectChange]
+  flavorTextEntries: [AbilityFlavorText]
+  pokemon: [AbilityPokemon]
+}
 
 type AbilityEffectChange {
     effectEntries: [Effect]
     versionGroup: NamedAPIResource
+}
+
+type AbilityFlavorText {
+  flavorText: String
+  language: NamedAPIResource
+  versionGroup: NamedAPIResource
+}
+
+type AbilityPokemon {
+  isHidden: Boolean
+  slot: Int
+  pokemon: NamedAPIResource
+}
+
+type Characteristic {
+  id: Int
+  geneModulo: Int
+  possibleValues: [Int]
+}
+
+type EggGroup {
+  id: Int
+  name: String
+  names: [Name]
+  pokemonSpecies: NamedAPIResource
+}
+
+type Gender {
+  id: Int
+  name: String
+  pokemonSpeciesDetails: [PokemonSpeciesGender]
+  requiredForEvolution: [NamedAPIResource]
+}
+
+type PokemonSpeciesGender {
+  rate: Int
+  pokemonSpecies: NamedAPIResource
+}
+
+type GrowthRate {
+  id: Int
+  name: String
+  formula: String
+  descriptions: [Description]
+  levels: [GrowthRateExperienceLevel]
+  pokemonSpecies: [NamedAPIResource]
+}
+
+type GrowthRateExperienceLevel {
+  level: Int
+  experience: Int
+}
+
+type Nature {
+  id: Int
+  name: String
+  decreasedStat: NamedAPIResource
+  increasedStat: NamedAPIResource
+  hatesFlavor: NamedAPIResource
+  likesFlavor: NamedAPIResource
+  pokeathlonStatChanges: [NatureStatChange]
+  moveBattleStylePreferences: [MoveBattleStylePreference]
+  names: [Name]
+}
+
+type NatureStatChange {
+  maxChange: Int
+  pokeathlonStat: NamedAPIResource
+}
+
+type MoveBattleStylePreference {
+  lowHpPreference: Int
+  highHpPreference: Int
+  moveBattleStyle: NamedAPIResource
+}
+
+type PokeathlonStat {
+  id: Int
+  name: String
+  names: [Name]
+  affectingNatures: NaturePokeathlonStatAffectSets
+}
+
+type NaturePokeathlonStatAffectSets {
+  increase: [NaturePokeathlonStatAffect]
+  decrease: [NaturePokeathlonStatAffect]
+}
+
+type NaturePokeathlonStatAffect {
+  maxChange: Int
+  nature: NamedAPIResource
+}
+
+type Pokemon {
+  id: Int
+  name: String
+  baseExperience: Int
+  height: Int
+  isDefault: Boolean
+  order: Int
+  weight: Int
+  abilities: [PokemonAbility]
+  forms: NamedAPIResource
+  gameIndices: [VersionGameIndex]
+  heldItems: [PokemonHeldItem]
+  locationAreaEncounters: String
+  moves: [PokemonMove]
+  sprites: PokemonSprites
+  species: NamedAPIResource
+  stats: [PokemonStat]
+  types: [PokemonType]
+}
+
+type PokemonAbility {
+  isHidden: Boolean
+  slot: Int
+  ability: NamedAPIResource
+}
+
+type PokemonType {
+  slot: Int
+  type: NamedAPIResource
+}
+
+type PokemonHeldItem {
+  item: NamedAPIResource
+  versionDetails: [PokemonHeldItemVersion]
+}
+
+type PokemonHeldItemVersion {
+  version: NamedAPIResource
+  rarity: Int
+}
+
+type PokemonMove {
+  move: NamedAPIResource
+  versionGroupDetails: [PokemonMoveVersion]
+}
+
+type PokemonMoveVersion {
+  moveLearnMethod: NamedAPIResource
+  versionGroup: NamedAPIResource
+  levelLearnedAt: Int
+}
+
+type PokemonStat {
+  stat: NamedAPIResource
+  effort: Int
+  baseStat: Int
+}
+
+type PokemonSprites {
+  frontDefault: String
+  frontShiny: String
+  frontFemale: String
+  frontShinyFemale: String
+  backDefault: String
+  backShiny: String
+  backFemale: String
+  backShinyFemale: String
+}
+
+type LocationAreaEncounter {
+  locationArea: NamedAPIResource
+  versionDetails: [VersionEncounterDetail]
+}
+
+type PokemonColor {
+  id: Int
+  name: String
+  names: [Name]
+  pokemonSpecies: [NamedAPIResource]
+}
+
+type PokemonForm {
+  id: Int
+  name: String
+  order: Int
+  formOrder: int
+  isDefault: Boolean
+  isBattleOnly: Boolean
+  isMega: Boolean
+  formName: String
+  pokemon: NamedAPIResource
+  sprites: PokemonFormSprites
+  versionGroup: NamedAPIResource
+  names: [Name]
+  formNames: [Name]
+}
+
+type PokemonFormSprites {
+  frontDefault: String
+  frontShiny: String
+  backDefault: String
+  backShiny: String
+}
+
+type PokemonHabitat {
+  id: Int
+  name: String
+  names: [Name]
+  pokemonSpecies: [NamedAPIResource]
+}
+
+type PokemonShape {
+  id: Int
+  name: String
+  awesomeName: [AwesomeName]
+  names: [Name]
+  pokemonSpecies: [NamedAPIResource]
+}
+
+type AwesomeName {
+  awesomeName: String
+  language: NamedAPIResource
+}
+
+type PokemonSpecies {
+  id: Int
+  name: String
+  order: Int
+  genderRate: Int
+  captureRate: Int
+  baseHappiness: Int
+  isBaby: Boolean
+  isLegendary: Boolean
+  isMythical: Boolean
+  hatchCounter: Int
+  hasGenderDifferences: Boolean
+  formsSwitchable: Boolean
+  growthRate: NamedAPIResource
+  pokedexNumbers: [PokemonSpeciesDexEntry]
+  eggGroups: [NamedAPIResource]
+  color: NamedAPIResource
+  shape: NamedAPIResource
+  evolvesFromSpecies: NamedAPIResource
+  evolutionChain: APIResource
+  habitat: NamedAPIResource
+  generation: NamedAPIResource
+  names: [Name]
+  palParkEncounters: [PalParkEncounterArea]
+  flavorTextEntries: [FlavorText]
+  formDescriptions: [Description]
+  genera: [Genus]
+  varieties: [PokemonSpeciesVariety]
+}
+
+type Genus {
+  genus: String
+  language: NamedAPIResource
+}
+
+type PokemonSpeciesDexEntry {
+  entryNumber: Int
+  pokedex: NamedAPIResource
+}
+
+type PalParkEncounterArea {
+  baseScore: Int
+  rate: Int
+  area: NamedAPIResource
+}
+
+type PokemonSpeciesVariety {
+  isDefault: Boolean
+  pokemon: NamedAPIResource
+}
+
+type Stat {
+  id: Int
+  name: String
+  gameIndex: Int
+  isBattleOnly: Boolean
+  affectingMoves: MoveStatAffectSets
+  affectingNatures: NatureStatAffectSets
+  characteristics: [APIResource]
+  moveDamageClass: NamedAPIResource
+  names: [Name]
+}
+
+type MoveStatAffectSets {
+  increase: [MoveStatAffect]
+  decrease: [MoveStatAffect]
+}
+
+type MoveStatAffect {
+  change: Int
+  move: NamedAPIResource
+}
+
+type NatureStatAffectSets {
+  increase: [NamedAPIResource]
+  decrease: [NamedAPIResource]
+}
+
+type Type {
+  id: Int
+  name: String
+  damageRelations: TypeRelations
+  gameIndices: [GenerationGameIndex]
+  generation: NamedAPIResource
+  moveDamageClass: NamedAPIResource
+  names: [Name]
+  pokemon: [TypePokemon]
+  moves: [NamedAPIResource]
+}
+
+type TypePokemon {
+  slot: Int
+  pokemon: NamedAPIResource
+}
+
+type TypeRelations {
+  noDamageTo: [NamedAPIResource]
+  halfDamageTo: [NamedAPIResource]
+  doubleDamageTo: [NamedAPIResource]
+  noDamageFrom: [NamedAPIResource]
+  halfDamageFrom: [NamedAPIResource]
+  doubleDamageFrom: [NamedAPIResource]
 }
