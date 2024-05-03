@@ -1,12 +1,8 @@
-type Query = string | number;
-
 export default class Moves {
     private get: (endpoint: string) => Promise<any>;
-    private baseURL: string;
 
-    constructor(get, url) {
-        this.get = get;
-        this.baseURL = url;
+    constructor(getter: Get) {
+        this.get = getter;
     }
 
     async move(query: Query): Promise<any> {
@@ -28,7 +24,7 @@ export default class Moves {
     async damageClass(query: Query): Promise<any> {
         return await this.get(`move-damage-class/${query}`);
     }
-    
+
     async learnMethod(query: Query): Promise<any> {
         return await this.get(`move-learn-method/${query}`);
     }

@@ -1,8 +1,9 @@
 {
   "name": "pokeapi-graphql",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
+  "author": "newt",
+  "license": "OQL",
   "dependencies": {
     "axios": "^0.21.1",
     "graphql": "^15.5.0",

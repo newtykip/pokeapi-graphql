@@ -1,12 +1,8 @@
-type Query = string | number;
-
 export default class Contests {
-    private get: (endpoint: string) => Promise<any>;
-    private baseURL: string;
+    private get: Get;
 
-    constructor(get, url) {
-        this.get = get;
-        this.baseURL = url;
+    constructor(getter: Get) {
+        this.get = getter;
     }
 
     async type(query: Query): Promise<any> {

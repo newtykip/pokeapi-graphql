@@ -2,8 +2,7 @@ const snakeCase = require('lodash.snakecase');
 
 module.exports = {
     webpack: ({
-        config,
-        webpack
+        config
     }) => {
         config.module.rules.push({
             test: /\.tsx?$/,

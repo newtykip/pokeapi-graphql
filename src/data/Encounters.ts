@@ -1,12 +1,8 @@
-type Query = string | number;
-
 export default class Encounters {
     private get: (endpoint: string) => Promise<any>;
-    private baseURL: string;
 
-    constructor(get, url) {
-        this.get = get;
-        this.baseURL = url;
+    constructor(getter: Get) {
+        this.get = getter;
     }
 
     async method(query: Query): Promise<any> {
